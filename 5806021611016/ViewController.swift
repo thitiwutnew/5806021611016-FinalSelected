@@ -42,13 +42,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.setChart(xValues: self.name, yValuesLineChart:  self.country, yValuesBarChart: self.population)
         }
-        //        self.setChart(xValues: name, yValuesLineChart:  country, yValuesBarChart: population)
-        //        if textSub.text == "" {
-        //                        alert(checkCondition: 0)
-        //                    } else {
-        //                        self.checkNum(inputText: String(textSub.text!) ?? "asia")
-        //
-        //                    }
+        
         fullNameArr = textSub.text?.components(separatedBy: ",") ?? [""]
         print(textSub.text!)
         print(name)
@@ -57,9 +51,10 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getdata()
+       
+            getdata()
         
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
     func getdata(){
@@ -92,7 +87,7 @@ class ViewController: UIViewController, ChartViewDelegate {
             }.resume()
     }
     func setChart(xValues: [String], yValuesLineChart: [Double], yValuesBarChart: [Double]) {
-        chartView.noDataText = "Please provide data for the chart."
+        chartView.noDataText = "กรุณา กรอกข้อมูลเลือกประเทศ"
         
         var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
         var yVals2 : [BarChartDataEntry] = [BarChartDataEntry]()
